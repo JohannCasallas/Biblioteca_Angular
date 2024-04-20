@@ -19,13 +19,6 @@ import {MatTreeModule} from '@angular/material/tree';
   imports: [
     NoopAnimationsModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatTreeModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
