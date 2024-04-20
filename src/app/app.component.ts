@@ -1,72 +1,16 @@
-import { Component } from '@angular/core';
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
-
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Prestamos',
-    children: [{ name: 'Registrar' }, { name: 'Consultar' }],
-  },
-  {
-    name: 'Registro',
-    children: [{ name: 'Libros' }, { name: 'Autores' }, { name: 'Editorial' }, { name: 'Categoria' }],
-  },
-  {
-    name: 'Persona',
-    children: [{ name: 'Usuario' }, { name: 'Lectores' }],
-  },
-];
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  private _transformer = (node: FoodNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
-  };
+export class AppComponent implements OnInit {
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node => node.level,
-    node => node.expandable,
-  );
-  treeFlattener = new MatTreeFlattener(
-    this._transformer,
-    node => node.level,
-    node => node.expandable,
-    node => node.children,
-  );
+  constructor(private router: Router) {}
 
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  constructor() {
-    this.dataSource.data = TREE_DATA;
-  }
-
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-
-  toggleNode(node: ExampleFlatNode): void {
-    this.treeControl.dataNodes.forEach((n) => {
-      if (n !== node) {
-        this.treeControl.collapse(n);
-      }
-    });
-    this.treeControl.toggle(node);
+  ngOnInit() {
+    this.router.navigateByUrl('/login');
   }
 }
