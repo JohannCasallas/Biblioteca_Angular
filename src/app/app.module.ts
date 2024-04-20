@@ -1,32 +1,31 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './Aunth/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input'; 
-import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './Services/login.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTreeModule} from '@angular/material/tree';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     NoopAnimationsModule,
-    MatTableModule,
-    MatInputModule, 
-    MatFormFieldModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTreeModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
