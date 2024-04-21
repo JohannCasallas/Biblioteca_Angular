@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module'; 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './Components/login/login.component';
 import { SharedModule } from './reusable/shared/shared.module';
+import { LayoutComponent } from './Components/layout/layout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     AppRoutingModule,

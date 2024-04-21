@@ -24,7 +24,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Panel lateral
 import { MatListModule } from '@angular/material/list'; // Lista
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Indicador de carga
 import { MatTooltipModule } from '@angular/material/tooltip'; // Información sobre herramientas
-import { BrowserModule } from '@angular/platform-browser'; // Ejecutar en el navegador web.
+import { BrowserModule } from '@angular/platform-browser'; // Ejecutar en el navegador web
+import { RouterModule, Route } from '@angular/router'; // ejecutar una aplicación en un navegador web
 
 @NgModule({
   declarations: [],
@@ -56,6 +57,7 @@ import { BrowserModule } from '@angular/platform-browser'; // Ejecutar en el nav
     MatTooltipModule,
     MatDialogModule,
     BrowserModule,
+    RouterModule,
   ],
   exports: [
     CommonModule,

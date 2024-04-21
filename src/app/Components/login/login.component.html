@@ -1,0 +1,34 @@
+<div class="container">
+    <form class="login-form">
+        <div class="version">
+            <p>Vesion 1.0.0</p>
+        </div>
+        <div class="logo-container">
+            <img src="../../../assets/inicio.png" alt="Logo de la página" class="logo">
+        </div>
+
+        <div class="custom-input">
+            <mat-form-field appearance="fill">
+                <mat-label>Correo electrónico</mat-label>
+                <input class="input" matInput id="correo" #correo>
+                <mat-icon class="person" matSuffix>person</mat-icon>
+            </mat-form-field>
+        </div>
+        
+        <div class="custom-input">
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" id="clave" #clave>
+                <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" [attr.aria-label]="'Toggle password visibility'"
+                    [attr.aria-pressed]="!hide">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+
+        <div class="button-container">
+            <button mat-raised-button (click)="loginAutenticacion(correo.value, clave.value); $event.preventDefault()">Iniciar
+                sesión</button>
+        </div>
+    </form>
+</div>
