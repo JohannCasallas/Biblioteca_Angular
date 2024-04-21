@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../Services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,7 +15,8 @@ export class LoginComponent {
 
   constructor(
     private loginService: LoginService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   toggleVisibility() {
@@ -33,6 +34,7 @@ export class LoginComponent {
       response => {
         if (response.exito) {
           this.openSnackBar(response.mensaje, 'Aceptar');
+          this.router.navigate(['/dashboard'])
         } else {
           this.openSnackBar(response.mensaje, 'Cerrar');
         }
@@ -46,9 +48,9 @@ export class LoginComponent {
   
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 3000, // Duración de la notificación en milisegundos
-      verticalPosition: 'top', // Posición vertical de la notificación
-      horizontalPosition: 'center', // Posición horizontal de la notificación
+      duration: 3000, 
+      verticalPosition: 'top', 
+      horizontalPosition: 'right', 
     });
   }
   
