@@ -24,6 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Panel lateral
 import { MatListModule } from '@angular/material/list'; // Lista
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Indicador de carga
 import { MatTooltipModule } from '@angular/material/tooltip'; // Información sobre herramientas
+import { BrowserModule } from '@angular/platform-browser'; // Ejecutar en el navegador web.
 
 @NgModule({
   declarations: [],
@@ -53,7 +54,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'; // Información so
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserModule,
   ],
   exports: [
     CommonModule,
@@ -81,7 +83,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'; // Información so
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserModule
   ]
 })
 export class SharedModule { }

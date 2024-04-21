@@ -4,7 +4,9 @@ import { DashboardHomeModule } from './dashboard-home/dashboard-home.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
 import { RegistroModule } from './registro/registro.module';
 import { PersonaModule } from './persona/persona.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { SharedModule } from '../reusable/shared/shared.module';
 
 
 
@@ -17,7 +19,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardHomeModule,
     PrestamoModule,
     RegistroModule,
-    PersonaModule
+    PersonaModule,
+    DashboardRoutingModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }
