@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../Services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 
 
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   hide = true;
+  cargando: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -28,10 +30,13 @@ export class LoginComponent {
       this.openSnackBar('Campos incompletos', 'Cerrar');
       return;
     }
-    
+
+    this.cargando = true;
+
     const usuario = { correo: correo, clave: clave };
     this.loginService.loginAutenticacion(usuario).subscribe(
       response => {
+        this.cargando = false;
         if (response.exito) {
           this.openSnackBar(response.mensaje, 'Aceptar');
           this.router.navigate(['/dashboard'])
