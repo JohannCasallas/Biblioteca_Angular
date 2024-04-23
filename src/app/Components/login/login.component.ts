@@ -34,7 +34,7 @@ export class LoginComponent {
     });
   }
 
-  iniciarSesion(){
+  iniciarSesion() {
     this.mostrarLoading = true;
 
     const request: ILoginAutentication = {
@@ -44,56 +44,21 @@ export class LoginComponent {
 
     this._loginService.loginAutenticacion(request).subscribe({
       next: (data) => {
-        if (data.status){
+        if (data.exito) {
           this._utilidadServicio.guardarSesionUsuario(data.value);
+          this._utilidadServicio.mostrarAlerta(data.mensaje, "Exito")
           this.router.navigate(["pages"])
-        }else
-        this._utilidadServicio.mostrarAlerta("No se encontraron Coincidencias", "Opps!")
+        } else
+          this._utilidadServicio.mostrarAlerta(data.mensaje, "Opps!")
       },
       complete: () => {
         this.mostrarLoading = false
       },
-      error: () => {
-        this._utilidadServicio.mostrarAlerta("Error!!", "Opps!")
-      }
     })
   }
-  
 
   ocultarPassaword() {
     this.ocultarPasaword = !this.ocultarPasaword;
-}
+  }
 
-  // loginAutenticacion(correo: string, clave: string) {
-  //   if (!this.validarCampos(correo, clave)) {
-  //     this.openSnackBar('Campos incompletos', 'Cerrar');
-  //     return;
-  //   }
-
-  //   const usuario = { correo: correo, clave: clave };
-  //   this._loginService.loginAutenticacion(usuario).subscribe(
-  //     response => {
-  //       if (response.exito) {
-  //         this.openSnackBar(response.mensaje, 'Aceptar');
-  //         this.router.navigate(['/pages'])
-  //       } else {
-  //         this.openSnackBar(response.mensaje, 'Cerrar');
-  //       }
-  //     }
-  //   );
-  // }
-  
-  // validarCampos(email: string, password: string): boolean {
-  //   return email.trim() !== '' && password.trim() !== '';
-  // }
-  
-  // openSnackBar(message: string, action: string) {
-  //   this.snackBar.open(message, action, {
-  //     duration: 3000, 
-  //     verticalPosition: 'top', 
-  //     horizontalPosition: 'right', 
-  //   });
-  // }
-  
-  
 }
