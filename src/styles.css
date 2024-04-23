@@ -1,4 +1,4 @@
-html, body { height: 100%; }
+/* html, body { height: 100%; }
 body { 
     font-family: 'Libre Baskerville', serif;
     display: flex;
@@ -8,4 +8,12 @@ body {
     width: 100%;
     background-image: url('../src/assets/fondo.png');
     background-size: 100% auto; 
+} */
+
+html, body { height: 100%; }
+body { 
+    font-family: 'Libre Baskerville', serif;
+    display: flex;
+    height: 100vh;
+    width: 100%;
 }

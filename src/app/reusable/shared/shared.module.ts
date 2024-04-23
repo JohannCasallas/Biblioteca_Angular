@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Para formularios
 import { HttpClientModule } from '@angular/common/http'; // Para realizar solicitudes HTTP
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Animaciones
 import { MatButtonModule } from '@angular/material/button'; // Botones
 import { MatIconModule } from '@angular/material/icon'; // Iconos
 import { MatInputModule } from '@angular/material/input'; // Campos de entrada
@@ -24,8 +22,9 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Panel lateral
 import { MatListModule } from '@angular/material/list'; // Lista
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Indicador de carga
 import { MatTooltipModule } from '@angular/material/tooltip'; // Informaci√≥n sobre herramientas
-// import { BrowserModule } from '@angular/platform-browser'; // Ejecutar en el navegador web
-import { RouterModule, Route } from '@angular/router'; // ejecutar una aplicaci√≥n en un navegador web
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+
 
 @NgModule({
   declarations: [],
@@ -33,7 +32,6 @@ import { RouterModule, Route } from '@angular/router'; // ejecutar una aplicaci√
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatInputModule,
@@ -55,13 +53,13 @@ import { RouterModule, Route } from '@angular/router'; // ejecutar una aplicaci√
     MatSnackBarModule,
     MatTooltipModule,
     MatDialogModule,
+    MatProgressBarModule,
+
   ],
   exports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatInputModule,
@@ -83,6 +81,7 @@ import { RouterModule, Route } from '@angular/router'; // ejecutar una aplicaci√
     MatSnackBarModule,
     MatTooltipModule,
     MatDialogModule,
+    MatProgressBarModule,
   ]
 })
 export class SharedModule { }

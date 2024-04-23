@@ -7,7 +7,30 @@
             <img src="../../../assets/inicio.png" alt="Logo de la página" class="logo">
         </div>
 
-        <div class="custom-input">
+        <mat-card-content style="padding-bottom: 15px;">
+
+            <form [formGroup]="FormularioLogin" (ngSubmit)="iniciarSesion()">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input class="input" formControlName="correo" matInput autocomplete="off">
+                    <mat-icon class="person" matSuffix>person</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="clave" [type]="ocultarPasaword ? 'password' : 'text'" autocomplete="off">
+                    <button type="button" mat-icon-button matSuffix (click)="ocultarPassaword()" [attr.aria-label]="'Toggle password visibility'"
+                        [attr.aria-pressed]="!ocultarPasaword">
+                        <mat-icon>{{ ocultarPasaword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+            </form>
+
+        </mat-card-content>
+
+        <!-- <div class="custom-input">
             <mat-form-field appearance="fill">
                 <mat-label>Correo electrónico</mat-label>
                 <input class="input" matInput id="correo" #correo>
@@ -24,11 +47,20 @@
                     <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
             </mat-form-field>
-        </div>
+        </div> -->
 
-        <div class="button-container">
+        <button class="full-width" mat-raised-button color="primary" type="submit"
+            [disabled]="FormularioLogin.invalid"
+            >
+            <mat-icon matSuffix>Iniciar sesión</mat-icon>
+        </button>
+
+        <!-- <div class="button-container">
             <button mat-raised-button (click)="loginAutenticacion(correo.value, clave.value); $event.preventDefault()">Iniciar
                 sesión</button>
-        </div>
+        </div> -->
     </form>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="mostrarLoading"></mat-progress-bar>
+    </mat-card-footer>
 </div>

@@ -5,6 +5,7 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PrestamoComponent } from './Pages/prestamo/prestamo.component';
 import { RegistroComponent } from './Pages/registro/registro.component';
 import { UsuariosComponent } from './Pages/usuarios/usuarios.component';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
           component: RegistroComponent
         },
         {
-          path: 'Usuarios',
+          path: 'usuarios',
           component: UsuariosComponent
         },
       ]

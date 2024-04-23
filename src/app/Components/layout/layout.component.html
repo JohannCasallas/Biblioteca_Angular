@@ -1,1 +1,48 @@
-<p>layout works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>BIBLIOTECA</h1>
+
+        <button mat-icon-button (click)="sidenav.toggle();">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
+        <mat-nav-list>
+
+            <mat-list-item routerLink="/pages/dashboard" >
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <div mat-line>Dashboard</div>
+            </mat-list-item>
+
+            <mat-list-item routerLink="/pages/prestamo" >
+                <mat-icon mat-list-icon>prestamo</mat-icon>
+                <div mat-line>Prestamo</div>
+            </mat-list-item>
+
+            <mat-list-item routerLink="/pages/registro" >
+                <mat-icon mat-list-icon>prestamo</mat-icon>
+                <div mat-line>Registro</div>
+            </mat-list-item>
+
+            <mat-list-item routerLink="/pages/usuarios" >
+                <mat-icon mat-list-icon>usuarios</mat-icon>
+                <div mat-line>usuarios</div>
+            </mat-list-item>
+        </mat-nav-list>
+
+
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div style="height: 90%;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
